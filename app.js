@@ -3,7 +3,8 @@ var app = new Vue({
     el: '#app',
     data: {
         maximum: 50,
-        products: null
+        products: null,
+        cart: []
     },
     mounted: function () {
         fetch('https://hplussport.com/api/products/order/price')
@@ -11,5 +12,12 @@ var app = new Vue({
             .then(data => {
                 this.products = data;
             })
+    },
+
+    methods: {
+        addItem: function (products) {
+            this.cart.push(products);
+        }
     }
+
 });
