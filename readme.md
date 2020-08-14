@@ -1,6 +1,6 @@
 # Belajar-Vuejs
 Belajar Dasar Vuejs <br>
-Membuat tampilan Web Shop sederhana Menggunakan vuejs dan Html
+Membuat tampilan <b>Web Shop</b> sederhana Menggunakan vuejs dan Html
 
-Lihat Hasilnya <a href="https://intom99.github.io/Belajar-Vuejs/" target="_blank">DISINI
+Lihat hasilnya <a href="https://intom99.github.io/Belajar-Vuejs/" target="_blank"><u>Disini</u>
 
