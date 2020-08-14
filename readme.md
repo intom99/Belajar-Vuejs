@@ -1,4 +1,5 @@
 # Belajar-Vuejs
 Belajar Dasar Vuejs
 
-https://intom99.github.io/Belajar-Vuejs/
+<a href="https://intom99.github.io/Belajar-Vuejs/">View Here</>
+
