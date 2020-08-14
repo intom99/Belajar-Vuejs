@@ -8,7 +8,7 @@ var app = new Vue({
         style: {
             label: ['font-weight-bold', 'mr-2'],
             inputWidth: 60,
-            sliderStatus: false
+            sliderStatus: true
         }
     },
     mounted: function () {
