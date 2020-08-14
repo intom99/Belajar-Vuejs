@@ -9,20 +9,26 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-    <title>My-Shop</title>
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" <title>My-Shop</title>
 </head>
 
 <body class="">
 
     <div class="container" id="app">
-
-        <nav class="navbar navbar-light bg-light">
-            <div class="navbar-text ml-auto">
-                <b>cart:</b>
-                <span class="badge badge-pill badge-success">{{ cart.length }}</span>
+        <!-- Navbar -->
+        <nav class="navbar navbar-light bg-light fixed-top">
+            <div class="navbar-text ml-auto d-flex">
+                <button class="btn btn-sm btn-outline-success" @click="style.sliderStatus = !style.sliderStatus">
+                    <i class="fas fa-dollar-sign"></i>
+                </button>
+                <div class="ml-2" v:if="cart.length > 0">
+                    <b>cart:</b>
+                    <span class="badge badge-pill badge-success">{{ cart.length }}</span>
+                </div>
             </div>
         </nav>
+        <br>
         <br>
 
         <h1>My Shop</h1>
