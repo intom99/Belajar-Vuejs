@@ -9,8 +9,17 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
     <!-- FontAwesome CDN -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" <title>My-Shop</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+
+    <!-- Animate CSS CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>My-Shop</title>
 </head>
 
 <body class="">
@@ -32,15 +41,24 @@
         <br>
 
         <h1>My Shop</h1>
-        <div class="align-item-center" :class="sliderState">
-            <label for="" :class="style.label">Max</label>
-            <input type="number" class="form-control mx-2"
-                :style="{'width': style.inputWidth + 'px', 'text-align': 'center'}" v-model="maximum">
+        <transition name="custom" enter-active-class="animate__animated animate__fadeInDown"
+            leave-active-class="animate__animated animate__slideOutRight">
+            <div v-if="style.sliderStatus">
+                <div class="align-item-center" :class="sliderState">
+                    <label for="" :class="style.label">Max</label>
+                    <input type="number" class="form-control mx-2"
+                        :style="{'width': style.inputWidth + 'px', 'text-align': 'center'}" v-model="maximum">
 
-            <input type="range" class="custom-range" min="0" max="200" v-model="maximum">
-        </div>
-        <div class="align-item-center" v-for="item in products">
-            <div class="row d-flex" v-if="item.price<= Number(maximum)">
+                    <input type="range" class="custom-range" min="0" max="200" v-model="maximum">
+                </div>
+
+            </div>
+        </transition>
+
+        <transition-group name="fade" tag="div" @beforeEnter="before" @enter="enter" @leave="leave">
+
+            <div class="row d-none mb-3 align-item-center" v-for="(item, index) in products" :key="item.id"
+                v-if="item.price<= Number(maximum)" :data-index="index">
 
                 <div class="col-1 m-auto">
                     <button class="btn btn-info" v-on:click="addItem(item)">+</button>
@@ -57,7 +75,9 @@
                 </div>
             </div>
 
-        </div>
+        </transition-group>
+
+
     </div>
 
 
