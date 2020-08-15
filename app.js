@@ -18,9 +18,28 @@ var app = new Vue({
                 this.products = data;
             })
     },
+    filters: {
+        currencyFormat: function (value) {
+            return 'Rp' + Number.parseFloat(value).toFixed(2);
+        }
+    },
     computed: {
         sliderState: function () {
             return this.style.sliderStatus ? 'd-flex' : 'd-none';
+        },
+        cartTotal: function () {
+            let sum = 0;
+            for (key in this.cart) {
+                sum = sum + (this.cart[key].product.price * this.cart[key].qty)
+            }
+            return sum;
+        },
+        cartQty: function () {
+            let qty = 0;
+            for (key in this.cart) {
+                qty = qty + this.cart[key].qty;
+            }
+            return qty;
         }
     },
     methods: {
@@ -40,8 +59,23 @@ var app = new Vue({
                 el.className = 'row d-flex mb-3 align-item-center animate__animated animate__fadeOutRight';
             }, delay)
         },
-        addItem: function (products) {
-            this.cart.push(products);
+        addItem: function (product) {
+            var productIndex;
+            var productExist = this.cart.filter(function (item, index) {
+                if (item.product.id == Number(product.id)) {
+                    productIndex = index;
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+
+            if (productExist.length) {
+                this.cart[productIndex].qty++;
+            } else {
+                this.cart.push({ product: product, qty: 1 });
+            }
+
         }
     }
 
