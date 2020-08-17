@@ -1,6 +1,6 @@
 # Belajar-Vuejs
 Belajar Dasar Vuejs <br>
-Membuat tampilan <b>Web Shop</b> sederhana Menggunakan <a href="https://vuejs.org/">Vuejs</> dan Html,<br>
+Membuat tampilan <b>Web Shop</b> sederhana Menggunakan Vuejs dan Html,<br>
 Tampilan masih belum <b>Responsive</b>
 
 
